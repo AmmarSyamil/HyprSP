@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/1.png</file>
+        <file>images/herta.gif</file>
+    </qresource>
+</RCC>
