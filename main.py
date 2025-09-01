@@ -1,16 +1,3 @@
-"""Main application window for the simple TODO list app.
-
-This module provides the `MainWindow` class which wires the UI generated
-from Qt Designer (`compiled.ui_main.Ui_MainWindow`) to the application
-logic stored in the `Todo` model. It creates list widgets for each todo
-item, handles adding new items, and opens edit popups.
-
-Notes:
- - Uses PySide6 for the UI.
- - Keeps popup references in `self._popups` so they are not garbage
-     collected immediately after creation (common pitfall in Qt apps).
-"""
-
 import sys
 import json
 from typing import Tuple
