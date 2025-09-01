@@ -15,10 +15,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QLabel, QListView, QListWidget,
-    QListWidgetItem, QMainWindow, QMenuBar, QSizePolicy,
+from PySide6.QtWidgets import (QApplication, QDateTimeEdit, QGridLayout, QLabel,
+    QLineEdit, QListView, QListWidget, QListWidgetItem,
+    QMainWindow, QMenuBar, QPushButton, QSizePolicy,
     QStatusBar, QVBoxLayout, QWidget)
-import resources_rc
+from compiled import resources_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -30,7 +31,7 @@ class Ui_MainWindow(object):
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(40, 30, 161, 161))
-        self.label.setPixmap(QPixmap(u":/images/images/1.png"))
+        self.label.setPixmap(QPixmap(u":/images/images/herta.gif"))
         self.label.setScaledContents(True)
         self.layoutWidget = QWidget(self.centralwidget)
         self.layoutWidget.setObjectName(u"layoutWidget")
@@ -52,7 +53,29 @@ class Ui_MainWindow(object):
 
         self.todo = QListWidget(self.centralwidget)
         self.todo.setObjectName(u"todo")
-        self.todo.setGeometry(QRect(40, 250, 256, 192))
+        self.todo.setGeometry(QRect(30, 210, 341, 241))
+        self.layoutWidget1 = QWidget(self.centralwidget)
+        self.layoutWidget1.setObjectName(u"layoutWidget1")
+        self.layoutWidget1.setGeometry(QRect(30, 450, 459, 51))
+        self.gridLayout = QGridLayout(self.layoutWidget1)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.todo_add = QPushButton(self.layoutWidget1)
+        self.todo_add.setObjectName(u"todo_add")
+
+        self.gridLayout.addWidget(self.todo_add, 0, 2, 1, 1)
+
+        self.todo_input = QLineEdit(self.layoutWidget1)
+        self.todo_input.setObjectName(u"todo_input")
+
+        self.gridLayout.addWidget(self.todo_input, 0, 0, 1, 1)
+
+        self.dateTimeEdit = QDateTimeEdit(self.layoutWidget1)
+        self.dateTimeEdit.setObjectName(u"dateTimeEdit")
+
+        self.gridLayout.addWidget(self.dateTimeEdit, 0, 1, 1, 1)
+
+        self.gridLayout.setColumnStretch(0, 3)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -71,5 +94,6 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.label.setText("")
+        self.todo_add.setText(QCoreApplication.translate("MainWindow", u"Add", None))
     # retranslateUi
 

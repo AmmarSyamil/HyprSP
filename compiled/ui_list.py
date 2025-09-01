@@ -22,29 +22,31 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(400, 300)
-        self.gridLayoutWidget = QWidget(Form)
-        self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
-        self.gridLayoutWidget.setGeometry(QRect(30, 130, 351, 41))
-        self.gridLayout = QGridLayout(self.gridLayoutWidget)
+        Form.resize(400, 40)
+        self.gridLayout = QGridLayout(Form)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.checklist = QCheckBox(self.gridLayoutWidget)
-        self.checklist.setObjectName(u"checklist")
-
-        self.gridLayout.addWidget(self.checklist, 0, 2, 1, 1)
-
-        self.order = QLabel(self.gridLayoutWidget)
-        self.order.setObjectName(u"order")
-
-        self.gridLayout.addWidget(self.order, 0, 0, 1, 1)
-
-        self.description = QLabel(self.gridLayoutWidget)
+        self.description = QLabel(Form)
         self.description.setObjectName(u"description")
 
         self.gridLayout.addWidget(self.description, 0, 1, 1, 1)
 
-        self.gridLayout.setColumnStretch(1, 1)
+        self.checklist = QCheckBox(Form)
+        self.checklist.setObjectName(u"checklist")
+
+        self.gridLayout.addWidget(self.checklist, 0, 3, 1, 1)
+
+        self.order = QLabel(Form)
+        self.order.setObjectName(u"order")
+
+        self.gridLayout.addWidget(self.order, 0, 0, 1, 1)
+
+        self.deadlne = QLabel(Form)
+        self.deadlne.setObjectName(u"deadlne")
+
+        self.gridLayout.addWidget(self.deadlne, 0, 2, 1, 1)
+
+        self.gridLayout.setColumnStretch(1, 2)
+        self.gridLayout.setColumnStretch(2, 1)
 
         self.retranslateUi(Form)
 
@@ -53,8 +55,9 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
+        self.description.setText(QCoreApplication.translate("Form", u"TextLabel", None))
         self.checklist.setText(QCoreApplication.translate("Form", u"Done", None))
         self.order.setText(QCoreApplication.translate("Form", u"TextLabel", None))
-        self.description.setText(QCoreApplication.translate("Form", u"TextLabel", None))
+        self.deadlne.setText(QCoreApplication.translate("Form", u"TextLabel", None))
     # retranslateUi
 
