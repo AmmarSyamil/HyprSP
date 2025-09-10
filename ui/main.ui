@@ -54,7 +54,7 @@
     </property>
     <layout class="QGridLayout" name="gridLayout" columnstretch="3,0,0">
      <item row="0" column="2">
-      <widget class="QPushButton" name="todo_add">
+      <widget class="PushButton" name="todo_add">
        <property name="text">
         <string>Add</string>
        </property>
@@ -163,6 +163,13 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PushButton</class>
+   <extends>QPushButton</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../resources.qrc"/>
   <include location="../resources.qrc"/>

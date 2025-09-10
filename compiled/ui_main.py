@@ -17,8 +17,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QDateTimeEdit, QGridLayout,
     QLabel, QLineEdit, QListView, QListWidget,
-    QListWidgetItem, QMainWindow, QMenuBar, QPushButton,
-    QSizePolicy, QStatusBar, QWidget)
+    QListWidgetItem, QMainWindow, QMenuBar, QSizePolicy,
+    QStatusBar, QWidget)
+
+from qfluentwidgets import PushButton
 # import resources_rc
 from compiled import resources_rc
 
@@ -43,7 +45,7 @@ class Ui_MainWindow(object):
         self.gridLayout = QGridLayout(self.layoutWidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.todo_add = QPushButton(self.layoutWidget)
+        self.todo_add = PushButton(self.layoutWidget)
         self.todo_add.setObjectName(u"todo_add")
 
         self.gridLayout.addWidget(self.todo_add, 0, 2, 1, 1)

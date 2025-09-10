@@ -13,23 +13,16 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout" columnstretch="0,2,1,0">
-   <item row="0" column="1">
-    <widget class="QLabel" name="description">
+  <layout class="QGridLayout" name="gridLayout" columnstretch="0,0,0">
+   <item row="0" column="0">
+    <widget class="QLabel" name="order">
      <property name="text">
       <string>TextLabel</string>
      </property>
     </widget>
    </item>
-   <item row="0" column="3">
-    <widget class="QCheckBox" name="checklist">
-     <property name="text">
-      <string>Done</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0">
-    <widget class="QLabel" name="order">
+   <item row="0" column="1">
+    <widget class="QLabel" name="description">
      <property name="text">
       <string>TextLabel</string>
      </property>

@@ -11,13 +11,19 @@ MAIN_ART_TYPE = "video"
 EDIT_POPUP_ART = ":/images/1.png"
 EDIT_POPUP_ART_TYPE = "image"
 
-
-
 APP_LIST = {
+    #Example
+    #APP_NAME :
+        # {
+        #     "address":"web address for web or exe address for local",
+        #     "icon" : "APP_ICON_PATH",
+        #     "app_type": "web/local"
+        # }
+
     "Slack": 
         {
             "address":"https://www.slack.com",
-            "icon" : ":/logo/slack",
+            "icon" : ":/logo/slack.png",
             "app_type": "web"
         },
     "Instagram":
@@ -29,7 +35,7 @@ APP_LIST = {
     "Discord": 
         {
             "address": "https://www.discord.com",
-            "icon" : ":/logo/discord",
+            "icon" : ":/logo/discord.jpg",
             "app_type": "web"
         },
     "Reddit" :
@@ -40,15 +46,14 @@ APP_LIST = {
         },
     "Spotify" :
         {
-            "address": [r"C:\Users\ASUS\AppData\Roaming\Spotify\Spotify.exe"],
-            "icon" : ":/logo/spotify",
+            "address": r"C:\Users\ASUS\AppData\Roaming\Spotify\Spotify.exe",
+            "icon" : ":/logo/spotify.png",
             "app_type": "local"
         }
     }
 
 APP_LIST_EXTENTION_FILE = ["png", "jpg", "jpeg", "gif"]
 
-# Make sure not to change the count number 
 HACKATIME_WIDGET_API = "https://github-readme-stats.hackclub.dev/api/wakatime?username=2455&api_domain=hackatime.hackclub.com&theme=darcula&custom_title=Hackatime+Stats&layout=compact&cache_seconds=0&langs_count=12"
 
 

@@ -13,13 +13,16 @@ import compiled.resources_rc as resources_rc
 from data import app_list
 from config import *
 
+
 class notification_widget(QWidget, Ui_Form):
-    def __init__(self, app, app_type, url=None):
+    def __init__(self, app, app_type="web", url=None, icon=None):
         super().__init__()
 
         self.setupUi(self)
         self.url = url
         self.type = type
+        self.app = app
+        self.icon = icon
         self.app_type = app_type
         self.setFixedSize(50,50)
         self.setMaximumSize(QSize(50,50))
@@ -42,18 +45,22 @@ class notification_widget(QWidget, Ui_Form):
         # done = False
         for i in APP_LIST_EXTENTION_FILE:
             try:
-                path = f":/logo/{self.app.lower()}.{i}"
+                # path = f":/logo/{self.app.lower()}.{i}"
+                # path = f'{self.app.lower()}.{i}'
                 if i == "gif": #//////////////////////////////////////////////////////////////////////////////////////
-                    movie = QMovie(path)
+                    movie = QMovie(self.icon)
                     if movie:
                         self.logo.setMovie(movie)
                         movie.start()
                         break
-                else:
-                    logo = QPixmap(path)
+                elif i == 'images':
+                    logo = QPixmap(self.icon)
                     if not logo.isNull():
                         self.logo.setPixmap(logo)
                         break
+
+                else:
+                    raise "FILE ERROR, check the config.py file"
             except Exception as e:
                 pass
 
@@ -74,13 +81,19 @@ class notification_widget(QWidget, Ui_Form):
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
             print(self.url)
+            # webbrowser.open(self.url, new=2)
+            # path = 
             if self.app_type == "web":
                 webbrowser.open(self.url, new=2)
             elif self.app_type == "local":
                 try:
-                    subprocess.Popen(self.url)
+                    cmd = f'cmd.exe /C start "" "{self.url}"'
+                    subprocess.Popen(cmd, shell=True)
                 except Exception as e:
                     raise e
+            
+            else:
+                raise "SYBAU"
                 
         # super().mousePressEvent(event)
 

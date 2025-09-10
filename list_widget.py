@@ -7,16 +7,16 @@ from PySide6.QtUiTools import QUiLoader
 import sys
 
 class list_widget(QWidget, Ui_Form):
-    def __init__(self, order, description, checklist, deadline,status):
+    def __init__(self, order, description, deadline,status):
         super().__init__()
 
         self.setupUi(self)
         self.order.setText(order)
         self.description.setText(description)
-        self.checklist.setChecked(checklist)
-        self.checklist.stateChanged.connect(self.on_mark)
+        # self.checklist.setChecked(checklist)
+        # self.checklist.stateChanged.connect(self.on_mark)
         self.deadlne.setText(deadline)
-        self.checklist.statusTip()
+        # self.checklist.statusTip()
         
         
 

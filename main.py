@@ -20,6 +20,8 @@ from hackatime import HackaTime
 
 from config import *
 
+# from qfluentwidgets import 
+
 class MainWindow(QMainWindow, Ui_MainWindow):
     """Main window for apps.
     - `todo`, a QListWidget to display items
@@ -134,7 +136,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 order=str(i),
                 description=str(data["title"]),
                 deadline=f"{days} days and {hours} hours left",
-                checklist=True,
+                # checklist=True,
                 status=True,
             )
             item.setSizeHint(widget.sizeHint())
@@ -152,6 +154,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             widget = notification_widget(
                 app=str(i),
                 url=APP_LIST[i]["address"],
+                icon = APP_LIST[i]["icon"],
                 app_type=APP_LIST[i]["app_type"]
             )
             widget.setFocusPolicy(Qt.NoFocus)
