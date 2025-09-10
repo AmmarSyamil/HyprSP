@@ -17,15 +17,56 @@ class Todo():
             )
         
     def find_item(self, uuid):
-        print(self.load_item())
-        print(uuid)
+        # print(self.load_item())
+        # print(uuid)
 
         data = self.tw.tasks.get(uuid=uuid)
 
         # data = self.load_item()
         # current = data["s"]
-        print('\n', data["uuid"])
+        # print('\n', data["uuid"])
         return data
+    
+    def edit_item(self, task, title=None, description=None, due=None, status=None):
+        print('\n',task)
+        if title:
+            # print("title")
+            task["title"] = title
+
+        if description:
+            # print("desc")
+            task["description"] = description
+
+        if due:
+            # print("due")
+            task["due"] = due
+
+        try:
+            if status:
+                print(status, "here")
+                task["status"] = status
+
+        except Exception as e:
+            print(e)
+
+        # for i in [title, description, due, status]:
+
+        #     if i:
+        #         task[i] = str(i)
+        # # task["title"] = str(title)
+        # # task["description"] = str(desc)
+        # # task["deadline"] = str(deadline)
+        # # task["status"] = str(status)
+
+        try:
+            # print("save u lil  nifa")
+            task.save()
+            print(task)
+            # self.load_item()
+        except Exception as e:
+            return e
+
+
 
     def add_item(self, desc, deadline, status, title):
         """deadline must be in datetime format, like this (2025, 2, 14, 8, 0, 0)"""
@@ -41,12 +82,16 @@ class Todo():
         task.save()
 
     def load_item(self):
-        return self.tw.tasks.all()
-    
-    def delete_item(self, desc=None, status=None, deadline=None):
+        # idk = [task for task in self.tw.tasks.all() if task["status"] != 'deleted']
+        return self.tw.tasks.pending()
 
-        task = self.tw.tasks.get(description=desc, status=status, due=deadline)
-        task.delete()
+    def delete_item(self, task):
+        if task:
+            task_current = task
+        # else:
+            # task_current = self.tw.tasks.get(description=desc, status=status, due=deadline)
+        task_current.delete()
+        # task_current.save()
         
 #different between get and filter
 

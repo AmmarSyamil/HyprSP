@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>671</width>
-    <height>300</height>
+    <width>567</width>
+    <height>350</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QLabel" name="extra">
    <property name="geometry">
     <rect>
-     <x>330</x>
+     <x>300</x>
      <y>10</y>
-     <width>161</width>
-     <height>161</height>
+     <width>241</width>
+     <height>221</height>
     </rect>
    </property>
    <property name="text">
@@ -35,13 +35,13 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>10</y>
+     <x>10</x>
+     <y>20</y>
      <width>261</width>
-     <height>143</height>
+     <height>321</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,0,1,1,1,1">
     <item>
      <widget class="QLabel" name="title">
       <property name="text">
@@ -53,14 +53,18 @@
      <widget class="QLineEdit" name="title_input"/>
     </item>
     <item>
-     <widget class="QLabel" name="description">
-      <property name="text">
-       <string>Description</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="description_input"/>
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0">
+      <item>
+       <widget class="QLabel" name="description">
+        <property name="text">
+         <string>Description</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextEdit" name="description_input"/>
+      </item>
+     </layout>
     </item>
     <item>
      <widget class="QLabel" name="due">
@@ -70,15 +74,39 @@
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="due_input"/>
+     <widget class="QDateTimeEdit" name="due_input"/>
+    </item>
+    <item>
+     <widget class="QLabel" name="status">
+      <property name="text">
+       <string>Status</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="status_input">
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <item>
+       <property name="text">
+        <string>Completed</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Not Completed</string>
+       </property>
+      </item>
+     </widget>
     </item>
    </layout>
   </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>180</y>
+     <x>310</x>
+     <y>310</y>
      <width>239</width>
      <height>26</height>
     </rect>

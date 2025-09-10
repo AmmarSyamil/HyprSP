@@ -6,64 +6,38 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1163</width>
+    <height>485</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="style_1">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>30</x>
       <y>30</y>
-      <width>161</width>
-      <height>161</height>
+      <width>201</width>
+      <height>201</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="../resources.qrc">:/images/images/herta.gif</pixmap>
+     <pixmap>:/images/images/herta.gif</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>40</y>
-      <width>511</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QListWidget" name="listWidget">
-       <property name="flow">
-        <enum>QListView::Flow::LeftToRight</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QListWidget" name="listWidget_2">
-       <property name="flow">
-        <enum>QListView::Flow::LeftToRight</enum>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QListWidget" name="todo">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>210</y>
+      <x>280</x>
+      <y>110</y>
       <width>341</width>
       <height>241</height>
      </rect>
@@ -72,8 +46,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>450</y>
+      <x>280</x>
+      <y>360</y>
       <width>459</width>
       <height>51</height>
      </rect>
@@ -86,13 +60,95 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="0">
-      <widget class="QLineEdit" name="todo_input"/>
-     </item>
      <item row="0" column="1">
       <widget class="QDateTimeEdit" name="dateTimeEdit"/>
      </item>
+     <item row="0" column="0">
+      <widget class="QLineEdit" name="todo_input"/>
+     </item>
     </layout>
+   </widget>
+   <widget class="QListWidget" name="list_app">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>30</y>
+      <width>871</width>
+      <height>59</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustIgnored</enum>
+    </property>
+    <property name="flow">
+     <enum>QListView::Flow::LeftToRight</enum>
+    </property>
+    <property name="isWrapping" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="resizeMode">
+     <enum>QListView::ResizeMode::Adjust</enum>
+    </property>
+    <property name="layoutMode">
+     <enum>QListView::LayoutMode::Batched</enum>
+    </property>
+    <property name="viewMode">
+     <enum>QListView::ViewMode::IconMode</enum>
+    </property>
+    <property name="uniformItemSizes">
+     <bool>false</bool>
+    </property>
+    <property name="selectionRectVisible">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QWidget" name="hackatime" native="true">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>110</y>
+      <width>521</width>
+      <height>241</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="style_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>260</y>
+      <width>201</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>:/images/images/herta.gif</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="style_3">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>380</y>
+      <width>391</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -100,17 +156,13 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1163</width>
      <height>33</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <tabstops>
-  <tabstop>listWidget</tabstop>
-  <tabstop>listWidget_2</tabstop>
- </tabstops>
  <resources>
   <include location="../resources.qrc"/>
   <include location="../resources.qrc"/>

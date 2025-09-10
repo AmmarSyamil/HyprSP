@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QWidget
-from compiled.ui_list_widget import Ui_Form
+from compiled.ui_list import Ui_Form
 from PySide6.QtWidgets import QApplication, QMainWindow, QListWidgetItem, QLabel, QWidget
 from PySide6.QtCore import Qt, QFile, QIODevice, QObject, QSize
 from PySide6.QtGui import QPixmap, QMovie

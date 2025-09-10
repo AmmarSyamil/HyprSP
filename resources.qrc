@@ -1,6 +1,9 @@
 <RCC>
-    <qresource prefix="/images">
-        <file>images/1.png</file>
-        <file>images/herta.gif</file>
-    </qresource>
+  <qresource>
+    <file alias="images/1.png">images/1.png</file>
+    <file alias="images/herta.gif">images/herta.gif</file>
+    <file alias="logo/discord.jpg">images/logo/discord.jpg</file>
+    <file alias="logo/slack.png">images/logo/slack.png</file>
+    <file alias="logo/spotify.png">images/logo/spotify.png</file>
+  </qresource>
 </RCC>

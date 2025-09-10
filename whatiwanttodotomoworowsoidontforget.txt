@@ -1,4 +1,2 @@
-- fix the giv in the edit popup 
-- make teh popup shown near in teh place of the thingy
-- force only can open one tab on one option, or when  on popup cant acces the main (change to modal)
-- finish the add function in the main.py
+add some functionality in the ceckbox shit ass u lil nuga
+fix the import thingu, like dont need adding compiled to the qrc file u lil noga, and also u dont need to remember when was the last time i need to piss my ass off here, 
