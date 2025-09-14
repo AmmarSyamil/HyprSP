@@ -167,7 +167,7 @@
   <customwidget>
    <class>PushButton</class>
    <extends>QPushButton</extends>
-   <header>qfluentwidgets</header>
+   <header location="global">qfluentwidgets</header>
   </customwidget>
  </customwidgets>
  <resources>

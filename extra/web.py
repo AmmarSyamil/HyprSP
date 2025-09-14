@@ -5,22 +5,27 @@ from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6 import QtCore
 import markdown
 import sys
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 
-class HackaTime(QWidget):
+class Web_Engine(QWidget):
     def __init__(self, url, markdown=False, mode="fit"):
         super().__init__()
         self.web = QWebEngineView()
         self.url = url
         self.mode = mode
+        logging.info(f"Initializing Web_Engine with URL: {url}")
 
         layout = QVBoxLayout(self)
         layout.setContentsMargins(0,0,0,0)
-        layout.setSpacing(0)    
+        layout.setSpacing(0)
         layout.addWidget(self.web)
-        self.adjustSize()
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        # Removed adjustSize, frameless, and translucent for better placement in layouts
+        # self.adjustSize()
+        # self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        # self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
 
         # self.web.loadFinished.connect(self.resize)
 
@@ -33,6 +38,7 @@ class HackaTime(QWidget):
             pass
 
         self.web.loadFinished.connect(self.setup_after)
+        self.web.urlChanged.connect(lambda url: logging.info(f"URL changed to: {url.toString()}"))
 
         if markdown:
             self.net = QNetworkAccessManager(self)
@@ -40,6 +46,7 @@ class HackaTime(QWidget):
             self.net.get(QNetworkRequest(QUrl(url)))
         else:
             self.web.setUrl(QUrl(url))
+            logging.info(f"Set URL: {url}")
 
 
     def _connect(self, reply):
@@ -48,23 +55,24 @@ class HackaTime(QWidget):
             md =    bytes(data).decode('utf-8', 'ignore')
             html = markdown.markdown(md)
             self.web.setHtml(html, QUrl(self.url))
+            logging.info(f"Set HTML for markdown URL: {self.url}")
 
     def setup(self, current_size):
         try:
-            size = QSize(int(current_size.width(), int(size.height())))
+            size = QSize(int(current_size.width()), int(current_size.height()))
         except Exception as e:
             size = self.size()
 
         if self.mode == "compact":
             self.web.setFixedSize(size)
-            self.setFixedSize(size)
+            # Removed self.setFixedSize(size) to allow proper placement in layouts
         else:
             self.web.resize(self.size())
 
     def setup_after(self):
-        if self.mode == "fit":
-            self.web.resize(self.size())
-        else:
+        # if self.mode == "fit":
+        #     self.web.resize(self.size())
+        # else:
             page = self.web.page()
             try:
                 size = page.contentsSize()
@@ -75,8 +83,8 @@ class HackaTime(QWidget):
 
     def resizeEvent(self, event):
         super().resizeEvent(event)
-        if self.mode == "fit":
-            self.web.resize(self.size())
+        # if self.mode == "fit":
+        #     self.web.resize(self.size())
 
     def sizeHint(self): 
         return self.web.sizeHint()
@@ -94,7 +102,9 @@ class HackaTime(QWidget):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    w = HackaTime("https://github-readme-stats.hackclub.dev/api/wakatime?username=2455&api_domain=hackatime.hackclub.com&theme=darcula&custom_title=Hackatime+Stats&layout=compact&cache_seconds=0&langs_count=8")
+    # w = HackaTime("https://github-readme-stats.hackclub.dev/api/wakatime?username=2455&api_domain=hackatime.hackclub.com&theme=darcula&custom_title=Hackatime+Stats&layout=compact&cache_seconds=0&langs_count=8")
+    w = Web_Engine("https://www.instagram.com/explore/")
     # w = HackaTime("https://github.com/AmmarSyamil/AmmarSyamil/blob/main/README.md?plain=1")
+    w.setFixedSize(QSize(400,400))
     w.show()
     app.exec()

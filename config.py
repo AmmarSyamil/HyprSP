@@ -2,6 +2,9 @@
 from compiled import resources_rc
 from pathlib import Path
 import subprocess
+from data import DATA
+import os
+from itertools import chain
 
 # Config file for this project
 # Run this code to compile all ui and qrc file
@@ -10,6 +13,11 @@ MAIN_ART = ":/images/herta.gif"
 MAIN_ART_TYPE = "video"
 EDIT_POPUP_ART = ":/images/1.png"
 EDIT_POPUP_ART_TYPE = "image"
+DATA = DATA
+
+PAGE_MAIN_FLIPVIEW = ["./images/2.png"]
+# PAGE_MAIN_
+
 
 APP_LIST = {
     #Example
@@ -57,38 +65,26 @@ APP_LIST_EXTENTION_FILE = ["png", "jpg", "jpeg", "gif"]
 HACKATIME_WIDGET_API = "https://github-readme-stats.hackclub.dev/api/wakatime?username=2455&api_domain=hackatime.hackclub.com&theme=darcula&custom_title=Hackatime+Stats&layout=compact&cache_seconds=0&langs_count=12"
 
 
-
-STRUCTURE = {
-    "ui" : {
-        "ui/edit_popup.ui": "compiled/edit_popup.py",
-        "ui/hackatime.ui": "compiled/hackatime.py",
-        "ui/list.ui": "compiled/ui_list.py",
-        "ui/main.ui": "compiled/ui_main.py",
-        "ui/notification.ui": "compiled/ui_notification.py",
-    },
-
-    "qrc" : {
-        "resources.qrc" : "compiled/resources_rc.py"
-    }
-}
-
+UI_FOLDER_PATH = Path('./ui')
+UI_FILE = [f for f in os.listdir(UI_FOLDER_PATH) if f.endswith('.ui')]
+QRC_FILE = "resources.qrc"
+COMPILED_AT = Path('./compiled')
 
 if __name__ == '__main__':
     
-    for i,v in STRUCTURE.items():
-        if i =="ui":
-            for u, c in v.items():
-                try:
-                    run = subprocess.Popen(["pyside6-uic", u, "-o", c])
-                    output = run.communicate()[0]
-                except Exception as e:
-                    raise e
-        elif i == "qrc":
-            for u, c in v.items():
-                try:
-                    run = subprocess.Popen(["pyside6-rcc", u, "-o", c])
-                    output = run.communicate()[0]
-                except Exception as e:
-                    raise e
-        else:
-            raise "WIERD FORMAT FOUND U LIL CUTIE"
+    for name in chain(UI_FILE, (QRC_FILE,)):
+        src = UI_FOLDER_PATH / name
+        if not src.exists():
+            continue
+
+        try:
+            if name.endswith(".ui"):
+                out = COMPILED_AT / f"{src.stem}_ui.py" 
+                subprocess.run(["pyside6-uic", str(src), "-o", str(out)], check=True)
+
+            elif name.endswith(".qrc"):
+                out = COMPILED_AT / f"{src.stem}_rc.py"   
+                subprocess.run(["pyside6-rcc", str(src), "-o", str(out)], check=True)
+
+        except subprocess.CalledProcessError as e:
+            raise e

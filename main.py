@@ -16,7 +16,7 @@ from notification import notification_widget
 # from data import app_list
 from PySide6.QtNetwork import QNetworkAccessManager, QNetworkRequest
 from PySide6.QtWebEngineWidgets import QWebEngineView
-from hackatime import HackaTime
+from extra.web import Web_Engine as HackaTime
 
 from config import *
 

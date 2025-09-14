@@ -11,6 +11,10 @@ class list_widget(QWidget, Ui_Form):
         super().__init__()
 
         self.setupUi(self)
+        self.setMaximumWidth(341)
+        self.order.setWordWrap(True)
+        self.description.setWordWrap(True)
+        self.deadlne.setWordWrap(True)
         self.order.setText(order)
         self.description.setText(description)
         # self.checklist.setChecked(checklist)

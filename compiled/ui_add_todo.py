@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'edit_popup.ui'
+## Form generated from reading UI file 'add_todo.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.9.2
 ##
@@ -15,45 +15,41 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QDateTimeEdit, QHBoxLayout,
-    QLabel, QLineEdit, QPushButton, QSizePolicy,
-    QTextEdit, QVBoxLayout, QWidget)
-import resources_rc
+from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QSizePolicy,
+    QVBoxLayout, QWidget)
+
+from qfluentwidgets import (BodyLabel, CalendarPicker, ComboBox, LineEdit,
+    PushButton, TextEdit, TimePicker)
 
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(567, 350)
-        self.extra = QLabel(Form)
-        self.extra.setObjectName(u"extra")
-        self.extra.setGeometry(QRect(300, 10, 241, 221))
-        self.extra.setPixmap(QPixmap(u":/images/images/herta.gif"))
-        self.extra.setScaledContents(True)
+        Form.resize(669, 458)
         self.layoutWidget = QWidget(Form)
         self.layoutWidget.setObjectName(u"layoutWidget")
-        self.layoutWidget.setGeometry(QRect(10, 20, 261, 321))
+        self.layoutWidget.setGeometry(QRect(0, 10, 348, 321))
         self.verticalLayout = QVBoxLayout(self.layoutWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.title = QLabel(self.layoutWidget)
+        self.title = BodyLabel(self.layoutWidget)
         self.title.setObjectName(u"title")
 
         self.verticalLayout.addWidget(self.title)
 
-        self.title_input = QLineEdit(self.layoutWidget)
+        self.title_input = LineEdit(self.layoutWidget)
         self.title_input.setObjectName(u"title_input")
 
         self.verticalLayout.addWidget(self.title_input)
 
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.description = QLabel(self.layoutWidget)
+        self.description = BodyLabel(self.layoutWidget)
         self.description.setObjectName(u"description")
 
         self.verticalLayout_2.addWidget(self.description)
 
-        self.description_input = QTextEdit(self.layoutWidget)
+        self.description_input = TextEdit(self.layoutWidget)
         self.description_input.setObjectName(u"description_input")
 
         self.verticalLayout_2.addWidget(self.description_input)
@@ -61,56 +57,69 @@ class Ui_Form(object):
 
         self.verticalLayout.addLayout(self.verticalLayout_2)
 
-        self.due = QLabel(self.layoutWidget)
+        self.due = BodyLabel(self.layoutWidget)
         self.due.setObjectName(u"due")
 
         self.verticalLayout.addWidget(self.due)
 
-        self.due_input = QDateTimeEdit(self.layoutWidget)
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.due_input = CalendarPicker(self.layoutWidget)
         self.due_input.setObjectName(u"due_input")
 
-        self.verticalLayout.addWidget(self.due_input)
+        self.horizontalLayout.addWidget(self.due_input)
 
-        self.status = QLabel(self.layoutWidget)
+        self.dateTimeEdit = TimePicker(self.layoutWidget)
+        self.dateTimeEdit.setObjectName(u"dateTimeEdit")
+
+        self.horizontalLayout.addWidget(self.dateTimeEdit)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout)
+
+        self.status = BodyLabel(self.layoutWidget)
         self.status.setObjectName(u"status")
 
         self.verticalLayout.addWidget(self.status)
 
-        self.status_input = QComboBox(self.layoutWidget)
+        self.status_input = ComboBox(self.layoutWidget)
         self.status_input.addItem("")
         self.status_input.addItem("")
         self.status_input.setObjectName(u"status_input")
-        self.status_input.setFrame(True)
+        self.status_input.setFlat(True)
 
         self.verticalLayout.addWidget(self.status_input)
 
-        self.verticalLayout.setStretch(0, 1)
         self.verticalLayout.setStretch(1, 1)
         self.verticalLayout.setStretch(3, 1)
-        self.verticalLayout.setStretch(4, 1)
         self.verticalLayout.setStretch(5, 1)
         self.verticalLayout.setStretch(6, 1)
-        self.layoutWidget1 = QWidget(Form)
-        self.layoutWidget1.setObjectName(u"layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(310, 310, 239, 26))
-        self.horizontalLayout = QHBoxLayout(self.layoutWidget1)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.save = QPushButton(self.layoutWidget1)
+        self.layoutWidget_2 = QWidget(Form)
+        self.layoutWidget_2.setObjectName(u"layoutWidget_2")
+        self.layoutWidget_2.setGeometry(QRect(410, 310, 239, 26))
+        self.horizontalLayout_2 = QHBoxLayout(self.layoutWidget_2)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.save = PushButton(self.layoutWidget_2)
         self.save.setObjectName(u"save")
 
-        self.horizontalLayout.addWidget(self.save)
+        self.horizontalLayout_2.addWidget(self.save)
 
-        self.delete_2 = QPushButton(self.layoutWidget1)
+        self.delete_2 = PushButton(self.layoutWidget_2)
         self.delete_2.setObjectName(u"delete_2")
 
-        self.horizontalLayout.addWidget(self.delete_2)
+        self.horizontalLayout_2.addWidget(self.delete_2)
 
-        self.cancel = QPushButton(self.layoutWidget1)
+        self.cancel = PushButton(self.layoutWidget_2)
         self.cancel.setObjectName(u"cancel")
 
-        self.horizontalLayout.addWidget(self.cancel)
+        self.horizontalLayout_2.addWidget(self.cancel)
 
+        self.extra = QLabel(Form)
+        self.extra.setObjectName(u"extra")
+        self.extra.setGeometry(QRect(400, 10, 241, 221))
+        self.extra.setPixmap(QPixmap(u":/images/images/herta.gif"))
+        self.extra.setScaledContents(True)
 
         self.retranslateUi(Form)
 
@@ -119,7 +128,6 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.extra.setText("")
         self.title.setText(QCoreApplication.translate("Form", u"Title", None))
         self.description.setText(QCoreApplication.translate("Form", u"Description", None))
         self.due.setText(QCoreApplication.translate("Form", u"Due", None))
@@ -130,5 +138,6 @@ class Ui_Form(object):
         self.save.setText(QCoreApplication.translate("Form", u"Save", None))
         self.delete_2.setText(QCoreApplication.translate("Form", u"Delete", None))
         self.cancel.setText(QCoreApplication.translate("Form", u"Cancel", None))
+        self.extra.setText("")
     # retranslateUi
 

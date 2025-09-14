@@ -5,5 +5,6 @@
     <file alias="logo/discord.jpg">images/logo/discord.jpg</file>
     <file alias="logo/slack.png">images/logo/slack.png</file>
     <file alias="logo/spotify.png">images/logo/spotify.png</file>
+    <file alias="images/2.png">images/2.png</file>
   </qresource>
 </RCC>
