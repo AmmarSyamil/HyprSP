@@ -42,65 +42,65 @@ class Ui_Form(object):
 
         self.horizontalLayout.addWidget(self.save)
 
-        self.delete_2 = PushButton(self.layoutWidget)
-        self.delete_2.setObjectName(u"delete_2")
+        self.dell = PushButton(self.layoutWidget)
+        self.dell.setObjectName(u"dell")
 
-        self.horizontalLayout.addWidget(self.delete_2)
+        self.horizontalLayout.addWidget(self.dell)
 
-        self.save_2 = PushButton(self.layoutWidget)
-        self.save_2.setObjectName(u"save_2")
+        self.cancel = PushButton(self.layoutWidget)
+        self.cancel.setObjectName(u"cancel")
 
-        self.horizontalLayout.addWidget(self.save_2)
+        self.horizontalLayout.addWidget(self.cancel)
 
-        self.widget = QWidget(self.frame)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(10, 10, 295, 311))
-        self.verticalLayout = QVBoxLayout(self.widget)
+        self.layoutWidget1 = QWidget(self.frame)
+        self.layoutWidget1.setObjectName(u"layoutWidget1")
+        self.layoutWidget1.setGeometry(QRect(10, 10, 295, 311))
+        self.verticalLayout = QVBoxLayout(self.layoutWidget1)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.label = BodyLabel(self.widget)
+        self.label = BodyLabel(self.layoutWidget1)
         self.label.setObjectName(u"label")
 
         self.verticalLayout.addWidget(self.label)
 
-        self.title_input = LineEdit(self.widget)
+        self.title_input = LineEdit(self.layoutWidget1)
         self.title_input.setObjectName(u"title_input")
 
         self.verticalLayout.addWidget(self.title_input)
 
-        self.label_2 = BodyLabel(self.widget)
+        self.label_2 = BodyLabel(self.layoutWidget1)
         self.label_2.setObjectName(u"label_2")
 
         self.verticalLayout.addWidget(self.label_2)
 
-        self.description_input = TextEdit(self.widget)
+        self.description_input = TextEdit(self.layoutWidget1)
         self.description_input.setObjectName(u"description_input")
 
         self.verticalLayout.addWidget(self.description_input)
 
-        self.label_3 = BodyLabel(self.widget)
+        self.label_3 = BodyLabel(self.layoutWidget1)
         self.label_3.setObjectName(u"label_3")
 
         self.verticalLayout.addWidget(self.label_3)
 
-        self.priorities_input = ComboBox(self.widget)
+        self.priorities_input = ComboBox(self.layoutWidget1)
         self.priorities_input.setObjectName(u"priorities_input")
 
         self.verticalLayout.addWidget(self.priorities_input)
 
-        self.label_4 = BodyLabel(self.widget)
+        self.label_4 = BodyLabel(self.layoutWidget1)
         self.label_4.setObjectName(u"label_4")
 
         self.verticalLayout.addWidget(self.label_4)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.deadline_input = CalendarPicker(self.widget)
+        self.deadline_input = CalendarPicker(self.layoutWidget1)
         self.deadline_input.setObjectName(u"deadline_input")
 
         self.horizontalLayout_2.addWidget(self.deadline_input)
 
-        self.time_deadline_input = TimePicker(self.widget)
+        self.time_deadline_input = TimePicker(self.layoutWidget1)
         self.time_deadline_input.setObjectName(u"time_deadline_input")
 
         self.horizontalLayout_2.addWidget(self.time_deadline_input)
@@ -108,7 +108,7 @@ class Ui_Form(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout_2)
 
-        self.completed = CheckBox(self.widget)
+        self.completed = CheckBox(self.layoutWidget1)
         self.completed.setObjectName(u"completed")
 
         self.verticalLayout.addWidget(self.completed)
@@ -122,8 +122,8 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.save.setText(QCoreApplication.translate("Form", u"Save", None))
-        self.delete_2.setText(QCoreApplication.translate("Form", u"Delete", None))
-        self.save_2.setText(QCoreApplication.translate("Form", u"Save", None))
+        self.dell.setText(QCoreApplication.translate("Form", u"Delete", None))
+        self.cancel.setText(QCoreApplication.translate("Form", u"Cancel", None))
         self.label.setText(QCoreApplication.translate("Form", u"Title", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"Description", None))
         self.label_3.setText(QCoreApplication.translate("Form", u"Priorities", None))

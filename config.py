@@ -16,6 +16,7 @@ EDIT_POPUP_ART_TYPE = "image"
 DATA = DATA
 
 PAGE_MAIN_FLIPVIEW = ["./images/2.png"]
+PAGE_HACKATIME_FLIPVIEW = ["./images/herta.gif"]
 # PAGE_MAIN_
 
 

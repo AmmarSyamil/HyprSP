@@ -46,22 +46,22 @@
       </widget>
      </item>
      <item>
-      <widget class="PushButton" name="delete_2">
+      <widget class="PushButton" name="dell">
        <property name="text">
         <string>Delete</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="PushButton" name="save_2">
+      <widget class="PushButton" name="cancel">
        <property name="text">
-        <string>Save</string>
+        <string>Cancel</string>
        </property>
       </widget>
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -143,8 +143,8 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>BodyLabel</class>
-   <extends>QLabel</extends>
+   <class>TextEdit</class>
+   <extends>QTextEdit</extends>
    <header>qfluentwidgets</header>
   </customwidget>
   <customwidget>
@@ -153,13 +153,18 @@
    <header location="global">qfluentwidgets</header>
   </customwidget>
   <customwidget>
-   <class>LineEdit</class>
-   <extends>QLineEdit</extends>
+   <class>CheckBox</class>
+   <extends>QCheckBox</extends>
    <header>qfluentwidgets</header>
   </customwidget>
   <customwidget>
-   <class>TextEdit</class>
-   <extends>QTextEdit</extends>
+   <class>BodyLabel</class>
+   <extends>QLabel</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>LineEdit</class>
+   <extends>QLineEdit</extends>
    <header>qfluentwidgets</header>
   </customwidget>
   <customwidget>
@@ -175,11 +180,6 @@
   <customwidget>
    <class>TimePicker</class>
    <extends>QPushButton</extends>
-   <header>qfluentwidgets</header>
-  </customwidget>
-  <customwidget>
-   <class>CheckBox</class>
-   <extends>QCheckBox</extends>
    <header>qfluentwidgets</header>
   </customwidget>
  </customwidgets>

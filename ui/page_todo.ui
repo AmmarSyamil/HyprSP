@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>400</height>
+    <height>384</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,7 +28,7 @@
    <property name="frameShadow">
     <enum>QFrame::Shadow::Raised</enum>
    </property>
-   <widget class="ListWidget" name="listWidget">
+   <widget class="ListWidget" name="todo_list">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -49,7 +49,7 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="PushButton" name="pushButton">
+      <widget class="PushButton" name="todo_add">
        <property name="text">
         <string>PushButton</string>
        </property>
@@ -58,7 +58,7 @@
     </layout>
    </widget>
   </widget>
-  <widget class="FlipView" name="listWidget_3">
+  <widget class="FlipView" name="style">
    <property name="geometry">
     <rect>
      <x>410</x>
@@ -96,10 +96,13 @@
         </rect>
        </property>
        <property name="text">
-        <string>CLosest</string>
+        <string>Closest</string>
        </property>
       </widget>
-      <widget class="QWidget" name="widget" native="true">
+      <widget class="QWidget" name="todo_closest" native="true">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -132,7 +135,7 @@
         <string>Priorities</string>
        </property>
       </widget>
-      <widget class="QListWidget" name="listWidget_2">
+      <widget class="QListWidget" name="todo_priorities">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -149,17 +152,17 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>FlipView</class>
+   <extends>QListWidget</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
    <class>PushButton</class>
    <extends>QPushButton</extends>
    <header location="global">qfluentwidgets</header>
   </customwidget>
   <customwidget>
    <class>ListWidget</class>
-   <extends>QListWidget</extends>
-   <header>qfluentwidgets</header>
-  </customwidget>
-  <customwidget>
-   <class>FlipView</class>
    <extends>QListWidget</extends>
    <header>qfluentwidgets</header>
   </customwidget>

@@ -7,15 +7,18 @@ class Todo:
         # self.counter = 1
 
     def add_todo(self, title, description, deadline, importance):
-        todo = {
-            "title": title,
-            "description": description,
-            "deadline": deadline,
-            "created": datetime.now(),
-            "status": "pending",
-            "importance": importance
-        }
-        self.todos[datetime.now()] = todo
+        try:
+            todo = {
+                "title": title,
+                "description": description,
+                "deadline": deadline,
+                "created": datetime.now(),
+                "status": "pending",
+                "importance": importance
+            }
+            self.todos[datetime.now()] = todo
+        except Exception as e:
+            return e
         # self.counter += 1
 
     def list_todos(self):
@@ -35,17 +38,20 @@ class Todo:
             return "Invalid id"
     
     def delete(self, id):
-        if self.todos[id]:
-            del self.todos[id]
+        try:
+            if self.todos[id]:
+                del self.todos[id]
 
-            try:
-                self.todos[id]
-                return "Failed"
-            except Exception as e:
-                return "Succes"
+                try:
+                    self.todos[id]
+                    return "Failed"
+                except Exception as e:
+                    return "Succes"
 
-        else:
-            return "Invalid id"
+            else:
+                return "Invalid id"
+        except Exception as e:
+            return e
         
     def find_closest(self):
         now = datetime.now()

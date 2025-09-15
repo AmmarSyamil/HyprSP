@@ -10,7 +10,6 @@ import platform
 from pathlib import Path
 from compiled.ui_notification import Ui_Form
 import compiled.resources_rc as resources_rc
-from data import app_list
 from config import *
 
 

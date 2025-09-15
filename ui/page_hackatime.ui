@@ -63,7 +63,7 @@
         <string>Total time</string>
        </property>
       </widget>
-      <widget class="QWidget" name="widget" native="true">
+      <widget class="QWidget" name="total_time_widget" native="true">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -83,7 +83,7 @@
       <property name="frameShadow">
        <enum>QFrame::Shadow::Raised</enum>
       </property>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>10</x>

@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QWidget
 # from compiled.page_main_ui import Ui_Form
-from PySide6.QtWidgets import QApplication, QMainWindow, QListWidgetItem, QLabel, QWidget
+from PySide6.QtWidgets import QApplication, QMainWindow, QListWidgetItem, QLabel, QWidget, QSizePolicy
 from PySide6.QtCore import Qt, QFile, QIODevice, QObject, QSize
 from PySide6.QtGui import QPixmap, QMovie
 from PySide6.QtUiTools import QUiLoader
@@ -9,41 +9,13 @@ from pathlib import Path
 import importlib.util
 import sys
 from qfluentwidgets.components.widgets.line_edit import TextEdit
-# import config
-# from config import *
-
-# #WTF IS PYTHON IMPORTING IDK NOSFFNOIWAIBUASDASBFABF
-# mod_path = (Path(__file__).resolve().parents[1] / "compiled" / "page_main_ui.py")
-# spec = importlib.util.spec_from_file_location("compiled.page_main_ui", str(mod_path))
-# module = importlib.util.module_from_spec(spec)
-# spec.loader.exec_module(module)
-
-# ROOT = Path(__file__).resolve().parents[1]
-# if str(ROOT) not in sys.path:
-#     sys.path.insert(0, str(ROOT))
-
-# def _load_module(name, relative_path):
-#     path = ROOT / relative_path
-#     spec = importlib.util.spec_from_file_location(name, str(path))
-#     module = importlib.util.module_from_spec(spec)
-#     spec.loader.exec_module(module)
-#     sys.modules[name] = module
-#     return module
-
-# _compiled = _load_module("compiled.page_main_ui", Path("compiled") / "page_main_ui.py")
-# Ui_Form = _compiled.Ui_Form
-
-# _specs_mod = _load_module("extra.specs", Path("extra") / "specs.py")
-# Specs = _specs_mod.Specs
-
-# _config_mod = _load_module("config", Path("") / "config.py")
-# config = _config_mod
 
 from compiled.page_main_ui import Ui_Form
 from config import *
 from extra.specs import Specs
 from extra.web import Web_Engine
-# from extra.web import Wen_ENgine
+# from compiled.ui_notification import
+from notification import notification_widget
 
 class list_widget(QMainWindow, Ui_Form):
     def __init__(self):
@@ -65,7 +37,26 @@ class list_widget(QMainWindow, Ui_Form):
         self.web.deleteLater()
         self.web = w
 
-        
+        self.app_list.setSpacing(0)
+        self.app_list.setGridSize(QSize(50,50))
+        for i in APP_LIST:
+            item = QListWidgetItem()
+            widget = notification_widget(
+                app=str(i),
+                url=APP_LIST[i]["address"],
+                icon=APP_LIST[i]["icon"],
+                app_type=APP_LIST[i]["app_type"]
+            )
+
+            widget.setFocusPolicy(Qt.NoFocus)
+            widget.setMaximumWidth(50)
+            widget.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+            item.setSizeHint(widget.sizeHint())
+            self.app_list.addItem(item)
+            self.app_list.setItemWidget(item, widget)
+
+
+
 
 
 
