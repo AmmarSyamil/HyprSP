@@ -2,3 +2,5 @@ fix the layout of the list thingy
 fix the import thingu, like dont need adding compiled to the qrc file u lil noga, and also u dont need to remember when was the last time i need to piss my ass off here, 
 jadi nambah jam functionality ngka?
 sama cara buat bandingin datetime gimana? kalo ada internet gampang sih ini 
+
+sybau out of time

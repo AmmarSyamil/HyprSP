@@ -21,8 +21,8 @@ from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QDateTimeEdit,
     QStatusBar, QWidget)
 
 from qfluentwidgets import PushButton
-import resources_rc
-import resources_rc
+from compiled import resources_rc
+# import resources_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):

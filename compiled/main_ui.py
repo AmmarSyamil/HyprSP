@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'main.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.2
+## Created by: Qt User Interface Compiler version 6.9.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1163, 485)
+        MainWindow.resize(1154, 485)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.style_1 = QLabel(self.centralwidget)
@@ -76,7 +76,7 @@ class Ui_MainWindow(object):
         self.list_app.setSelectionRectVisible(False)
         self.hackatime = QWidget(self.centralwidget)
         self.hackatime.setObjectName(u"hackatime")
-        self.hackatime.setGeometry(QRect(630, 110, 521, 241))
+        self.hackatime.setGeometry(QRect(640, 110, 521, 241))
         self.style_2 = QLabel(self.centralwidget)
         self.style_2.setObjectName(u"style_2")
         self.style_2.setGeometry(QRect(30, 260, 201, 141))
@@ -88,7 +88,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1163, 33))
+        self.menubar.setGeometry(QRect(0, 0, 1154, 33))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")

@@ -1,7 +1,7 @@
-from PySide6.QtWidgets import QWidget
+from PySide6.QtWidgets import QWidget, QDialog
 # from compiled.page_main_ui import Ui_Form
 from PySide6.QtWidgets import QApplication, QMainWindow, QListWidgetItem, QLabel, QWidget, QSizePolicy
-from PySide6.QtCore import Qt, QFile, QIODevice, QObject, QSize, QDateTime, QDate
+from PySide6.QtCore import Qt, QFile, QIODevice, QObject, QSize, QDateTime, QDate, Signal
 from PySide6.QtGui import QPixmap, QMovie
 from PySide6.QtUiTools import QUiLoader
 import sys
@@ -19,20 +19,35 @@ from notification import notification_widget
 from todo_class import Todo
 from datetime import datetime
 
-class list_widget(QMainWindow, Ui_Form):
-    def __init__(self, title=None, desc=None, priorities=None, deadline=datetime.now(), completed=False):
+class List_widget(QDialog, Ui_Form):
+    popup_closed = Signal()
+    def __init__(self,todo:Todo, uuid=None, title=None, desc=None, priorities=None, deadline=datetime.now(), completed=False):
         super().__init__()
 
         self.setupUi(self)
         # self.setup()
 
+        self.todo = todo
+        self.uuid = uuid
+
+        if uuid:
+            self.current = self.todo.search_todos(uuid)
+        
 
 
-        self.todo = Todo(DATA)
+        # self.todo = Todo(DATA)
 
-        self.title_input.setText(title)
-        self.description_input.setText(desc)
-        self.completed.setChecked(completed)
+            self.title_input.setText(self.current["title"])
+            self.description_input.setText(self.current["description"])
+            self.completed.setChecked(bool(self.current["status"]))
+
+        else:
+            # self.title_input.setText()
+            # self.description_input.setText()
+            # self.completed.setChecked()
+            pass
+
+        self.time_deadline_input.setFixedWidth(37)
 
         self.date = QDateTime(
             deadline.year, 
@@ -42,6 +57,7 @@ class list_widget(QMainWindow, Ui_Form):
             deadline.minute,
             deadline.second
         )
+        
 
         self.deadline_input.setDate(self.date.date())
         self.time_deadline_input.setTime(self.date.time())
@@ -64,31 +80,35 @@ class list_widget(QMainWindow, Ui_Form):
     
 
 
-
-
     def save_func(self):
         # print(self.title_input.text())
+        date_ahh_idk = QDateTime(self.deadline_input.getDate(), self.time_deadline_input.getTime())
+
         add = self.todo.add_todo(
-            title=self.save.text(),
+            title=self.title_input.text(),
             description=self.description_input.toPlainText(),
-            deadline=[self.deadline_input.getDate(), self.time_deadline_input.getTime()],
+            # deadline=[self.deadline_input.getDate(), self.time_deadline_input.getTime()],
+            deadline=date_ahh_idk.toPython(),
             importance=self.priorities_input.text(),
             status=self.completed.isChecked()
         )
 
         if add:
             raise add
+        
+        self.popup_closed.emit()
         self.close()
     
-    def del_func(self, id):
+    def del_func(self):
         print(self.priorities_input.text())
         # ?pass
         dell = self.todo.delete(
-            id=id
+            id=self.uuid
         )
 
         if dell:
             raise dell
+        self.popup_closed.emit()
         self.close()
 
     def cancel_func(self):
@@ -105,7 +125,8 @@ class list_widget(QMainWindow, Ui_Form):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    w = list_widget()
+    todo_instance = Todo(DATA)
+    w = List_widget(todo_instance)
     w.show()
     sys.exit(app.exec())
 

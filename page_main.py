@@ -1,7 +1,7 @@
-from PySide6.QtWidgets import QWidget
+from PySide6.QtWidgets import QWidget, QVBoxLayout
 # from compiled.page_main_ui import Ui_Form
-from PySide6.QtWidgets import QApplication, QMainWindow, QListWidgetItem, QLabel, QWidget, QSizePolicy
-from PySide6.QtCore import Qt, QFile, QIODevice, QObject, QSize
+from PySide6.QtWidgets import QApplication, QMainWindow, QListWidgetItem, QLabel, QWidget, QSizePolicy, QFrame
+from PySide6.QtCore import Qt, QFile, QIODevice, QObject, QSize, QUrl
 from PySide6.QtGui import QPixmap, QMovie
 from PySide6.QtUiTools import QUiLoader
 import sys
@@ -16,26 +16,38 @@ from extra.specs import Specs
 from extra.web import Web_Engine
 # from compiled.ui_notification import
 from notification import notification_widget
+from qframelesswindow.webengine import FramelessWebEngineView
 
-class list_widget(QMainWindow, Ui_Form):
+
+
+
+class list_widget(QFrame, Ui_Form):
     def __init__(self):
         super().__init__()
 
         self.setupUi(self)
         self.resize(800, 401)
-
-        self.flipimages_middle.setAspectRatioMode(Qt.KeepAspectRatio)
-        self.flipimages_middle.setItemSize(QSize(263, 399))
-        self.flipimages_middle.addImages(PAGE_MAIN_FLIPVIEW)
+        # self.flipimages_middle.setFixedSize(QSize(231,281))
+        # self.flipimages_middle.setAspectRatioMode(Qt.KeepAspectRatioByExpanding)
+        # self.flipimages_middle.setItemSize(QSize(231, 281))
+        # self.flipimages_middle.addImages(PAGE_MAIN_FLIPVIEW)
         self.specs = Specs()
+        self.specsHtml = self.specs.to_html()
         self.setup() 
+
+
         
-        w = Web_Engine("https://id.quora.com/")
-        w.setParent(self.web.parentWidget())
-        w.setGeometry(self.web.geometry())
-        self.web.hide()
-        self.web.deleteLater()
-        self.web = w
+        # w = Web_Engine(parent=self)
+        
+        # w.setParent(self.web.parentWidget())
+        # w.setGeometry(self.web.geometry())
+        # self.web.hide()
+        # self.web.deleteLater()
+        # self.web = w
+
+        # self.web = FramelessWebEngineView(self)
+        # self.web.load(QUrl("https://id.quora.com/"))
+
 
         self.app_list.setSpacing(0)
         self.app_list.setGridSize(QSize(50,50))
@@ -64,25 +76,37 @@ class list_widget(QMainWindow, Ui_Form):
         
 
     def setup(self):
+        self.setFixedSize(QSize(773, 401))
         self.specs_label.setLineWrapMode(TextEdit.NoWrap)
         self.specs_label.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.specs_label.setText(
-            self.specs.device_os() + "\n" + self.specs.device_system() + "\n" + self.specs.device_cpu() + "\n" + self.specs.device_gpu()
-        )
+        # self.specs_label.setText(
+        #     self.specs.device_os() + "\n" + self.specs.device_system() + "\n" + self.specs.device_cpu() + "\n" + self.specs.device_gpu()
+        # )
+        # self.specs_label.setTextFormat(Qt.RichText)
+        self.specs_label.setHtml(self.specsHtml)
         # self.OS_label.setText(self.specs.device_os())
         # self.System_label.setText(self.specs.device_system())
         # self.GPU_label.setText(self.specs.device_cpu())
         # self.CPU_label.setText(self.specs.device_gpu())
 
-        from PySide6.QtGui import QPixmap, QMovie
-        import config
 
-        if config.MAIN_ART_TYPE == "video":
-            movie = QMovie(config.MAIN_ART)
+
+        # self.main_2.setPixmap(QPixmap("./images/bg.jpg"))
+        if PAGE_MAIN_BAGROUND == "video":
+            movie = QMovie()
+            self.main_2.setMovie(movie)
+            movie.start()
+        else:
+            pixmap = QPixmap(PAGE_MAIN_BAGROUND)
+            self.main_2.setPixmap(pixmap)
+            self.main_2.setScaledContents(True)
+
+        if MAIN_ART_TYPE == "video":
+            movie = QMovie(MAIN_ART)
             self.main.setMovie(movie)
             movie.start()
         else:
-            pixmap = QPixmap(config.MAIN_ART)
+            pixmap = QPixmap(MAIN_ART)
             self.main.setPixmap(pixmap)
             self.main.setScaledContents(True)
 
@@ -93,5 +117,6 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     w = list_widget()
     w.show()
+    # w.setMicaEffectEnabled(True)
     sys.exit(app.exec())
 

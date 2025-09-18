@@ -1,3 +1,9 @@
+# Helper for resource paths (PyInstaller compatible)
+def resource_path(relative_path):
+    import sys, os
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return relative_path
 #Config file
 from compiled import resources_rc
 from pathlib import Path
@@ -9,15 +15,20 @@ from itertools import chain
 # Config file for this project
 # Run this code to compile all ui and qrc file
 
-MAIN_ART = ":/images/herta.gif"
+
+MAIN_ART = resource_path("images/herta.gif")
 MAIN_ART_TYPE = "video"
-EDIT_POPUP_ART = ":/images/1.png"
+EDIT_POPUP_ART = resource_path("images/1.png")
 EDIT_POPUP_ART_TYPE = "image"
 DATA = DATA
 
-PAGE_MAIN_FLIPVIEW = ["./images/2.png"]
-PAGE_HACKATIME_FLIPVIEW = ["./images/herta.gif"]
-# PAGE_MAIN_
+PAGE_MAIN_FLIPVIEW = [resource_path("images/bg3.png"), resource_path('images/bg4.png')]
+PAGE_HACKATIME_FLIPVIEW = [resource_path("images/herta.gif")]
+PAGE_TODO_FLIPVIEW = [resource_path("images/1.png")]
+
+PAGE_MAIN_BAGROUND = resource_path("images/bg.jpg")
+PAGE_TODO_BAGROUND = resource_path("images/bg5.jpg")
+
 
 
 APP_LIST = {
@@ -32,41 +43,47 @@ APP_LIST = {
     "Slack": 
         {
             "address":"https://www.slack.com",
-            "icon" : ":/logo/slack.png",
+            "icon" : resource_path("images/logo/slack.png"),
             "app_type": "web"
         },
-    "Instagram":
+    "Instagram": 
         {
             "address":"https://www.instagram.com",
-            "icon" : ":/logo/instagram",
+            "icon" : resource_path("images/logo/instagram.png"),
             "app_type": "web"
         },
     "Discord": 
         {
             "address": "https://www.discord.com",
-            "icon" : ":/logo/discord.jpg",
+            "icon" : resource_path("images/logo/discord.jpg"),
             "app_type": "web"
         },
     "Reddit" :
         {
             "address": "https://www.reddit.com",
-            "icon" : ":/logo/reddit",
+            "icon" : resource_path("images/logo/reddit.png"),
             "app_type": "web"
         },
     "Spotify" :
         {
             "address": r"C:\Users\ASUS\AppData\Roaming\Spotify\Spotify.exe",
-            "icon" : ":/logo/spotify.png",
+            "icon" : resource_path("images/logo/spotify.png"),
             "app_type": "local"
         }
     }
 
 APP_LIST_EXTENTION_FILE = ["png", "jpg", "jpeg", "gif"]
 
+
 HACKATIME_WIDGET_API = "https://github-readme-stats.hackclub.dev/api/wakatime?username=2455&api_domain=hackatime.hackclub.com&theme=darcula&custom_title=Hackatime+Stats&layout=compact&cache_seconds=0&langs_count=12"
 
-
-UI_FOLDER_PATH = Path('./ui')
+import sys
+import os
+from pathlib import Path
+if hasattr(sys, '_MEIPASS'):
+    UI_FOLDER_PATH = Path(os.path.join(sys._MEIPASS, 'ui'))
+else:
+    UI_FOLDER_PATH = Path('./ui')
 UI_FILE = [f for f in os.listdir(UI_FOLDER_PATH) if f.endswith('.ui')]
 QRC_FILE = "resources.qrc"
 COMPILED_AT = Path('./compiled')

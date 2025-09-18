@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>328</width>
+    <width>349</width>
     <height>400</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>311</width>
+     <width>281</width>
      <height>381</height>
     </rect>
    </property>
@@ -32,7 +32,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>340</y>
+      <y>350</y>
       <width>239</width>
       <height>26</height>
      </rect>
@@ -66,8 +66,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>295</width>
-      <height>311</height>
+      <width>258</width>
+      <height>331</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -113,22 +113,24 @@
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="CalendarPicker" name="deadline_input">
-         <property name="text">
-          <string>Calender</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="TimePicker" name="time_deadline_input">
-         <property name="text">
-          <string>Time</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <widget class="CalendarPicker" name="deadline_input">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="TimePicker" name="time_deadline_input">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="CheckBox" name="completed">

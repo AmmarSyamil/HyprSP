@@ -7,7 +7,7 @@ DATA = {
         "deadline": datetime(2025, 9, 15, 18, 0),
         "created": datetime(2025, 9, 11, 14, 30),
         "status": "pending",
-        "importance": 5
+        "importance": "Important"
     },
 
     'todo2' : {
@@ -16,7 +16,7 @@ DATA = {
         "deadline": datetime(2025, 9, 12, 20, 0),
         "created": datetime(2025, 9, 11, 9, 45),
         "status": "pending",
-        "importance": 3
+        "importance": "Normal"
     },
 
     'todo3' : {
@@ -25,7 +25,7 @@ DATA = {
         "deadline": datetime(2025, 9, 11, 19, 0),
         "created": datetime(2025, 9, 11, 8, 10),
         "status": "pending",
-        "importance": 4
+        "importance": "Normal"
     },
 
     'todo4' : {
@@ -34,7 +34,7 @@ DATA = {
         "deadline": datetime(2025, 9, 13, 10, 0),
         "created": datetime(2025, 9, 11, 12, 0),
         "status": "pending",
-        "importance": 5
+        "importance": "Important"
     },
 
     'todo5' : {
@@ -43,7 +43,7 @@ DATA = {
         "deadline": datetime(2025, 9, 14, 21, 0),
         "created": datetime(2025, 9, 11, 15, 5),
         "status": "pending",
-        "importance": 2
+        "importance": "Not important"
     },
 
     'todo6' : {
@@ -52,6 +52,6 @@ DATA = {
         "deadline": datetime(2025, 9, 13, 21, 0),
         "created": datetime(2025, 9, 11, 15, 5),
         "status": "pending",
-        "importance": 2
+        "importance": "Not important"
     }
 }

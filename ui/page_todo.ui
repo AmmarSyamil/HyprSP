@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>384</height>
+    <width>769</width>
+    <height>389</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -51,27 +51,17 @@
      <item>
       <widget class="PushButton" name="todo_add">
        <property name="text">
-        <string>PushButton</string>
+        <string>Add todo</string>
        </property>
       </widget>
      </item>
     </layout>
    </widget>
   </widget>
-  <widget class="FlipView" name="style">
-   <property name="geometry">
-    <rect>
-     <x>410</x>
-     <y>240</y>
-     <width>361</width>
-     <height>131</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>390</x>
+     <x>360</x>
      <y>10</y>
      <width>401</width>
      <height>211</height>
@@ -89,9 +79,9 @@
       <widget class="QLabel" name="label_6">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>49</width>
+         <x>11</x>
+         <y>11</y>
+         <width>38</width>
          <height>16</height>
         </rect>
        </property>
@@ -105,10 +95,10 @@
        </property>
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>30</y>
-         <width>371</width>
-         <height>31</height>
+         <x>11</x>
+         <y>39</y>
+         <width>379</width>
+         <height>21</height>
         </rect>
        </property>
       </widget>
@@ -135,7 +125,7 @@
         <string>Priorities</string>
        </property>
       </widget>
-      <widget class="QListWidget" name="todo_priorities">
+      <widget class="ListWidget" name="todo_priorities">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -149,11 +139,27 @@
     </item>
    </layout>
   </widget>
+  <widget class="ImageLabel" name="main_2">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>-40</y>
+     <width>1161</width>
+     <height>461</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <zorder>main_2</zorder>
+  <zorder>frame_5</zorder>
+  <zorder>layoutWidget</zorder>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>FlipView</class>
-   <extends>QListWidget</extends>
+   <class>ImageLabel</class>
+   <extends>QLabel</extends>
    <header>qfluentwidgets</header>
   </customwidget>
   <customwidget>

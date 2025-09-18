@@ -1,26 +1,62 @@
-# #WTF IS PYTHON IMPORTING IDK NOSFFNOIWAIBUASDASBFABF
-# mod_path = (Path(__file__).resolve().parents[1] / "compiled" / "page_main_ui.py")
-# spec = importlib.util.spec_from_file_location("compiled.page_main_ui", str(mod_path))
-# module = importlib.util.module_from_spec(spec)
-# spec.loader.exec_module(module)
+from qfluentwidgets import NavigationItemPosition, FluentWindow, SubtitleLabel, setFont
+from qfluentwidgets import FluentIcon as FIF
+from PySide6.QtWidgets import QHBoxLayout, QFrame, QApplication
+from PySide6.QtGui import QIcon
+from PySide6.QtCore import Qt
+import sys
 
-# ROOT = Path(__file__).resolve().parents[1]
-# if str(ROOT) not in sys.path:
-#     sys.path.insert(0, str(ROOT))
+class Widget(QFrame):
 
-# def _load_module(name, relative_path):
-#     path = ROOT / relative_path
-#     spec = importlib.util.spec_from_file_location(name, str(path))
-#     module = importlib.util.module_from_spec(spec)
-#     spec.loader.exec_module(module)
-#     sys.modules[name] = module
-#     return module
+    def __init__(self, text: str, parent=None):
+        super().__init__(parent=parent)
+        self.label = SubtitleLabel(text, self)
+        self.hBoxLayout = QHBoxLayout(self)
 
-# _compiled = _load_module("compiled.page_main_ui", Path("compiled") / "page_main_ui.py")
-# Ui_Form = _compiled.Ui_Form
+        setFont(self.label, 24)
+        self.label.setAlignment(Qt.AlignCenter)
+        self.hBoxLayout.addWidget(self.label, 1, Qt.AlignCenter)
 
-# _specs_mod = _load_module("extra.specs", Path("extra") / "specs.py")
-# Specs = _specs_mod.Specs
+        # Must set a globally unique object name for the sub-interface
+        self.setObjectName(text.replace(' ', '-'))
 
-# _config_mod = _load_module("config", Path("") / "config.py")
-# config = _config_mod
+
+class Window(FluentWindow):
+    """ Main Interface """
+
+    def __init__(self):
+        super().__init__()
+
+        # Create sub-interfaces, when actually using, replace Widget with your own sub-interface
+        self.homeInterface = Widget('Home Interface', self)
+        self.musicInterface = Widget('Music Interface', self)
+        self.videoInterface = Widget('Video Interface', self)
+        self.settingInterface = Widget('Setting Interface', self)
+        self.albumInterface = Widget('Album Interface', self)
+        self.albumInterface1 = Widget('Album Interface 1', self)
+
+        self.initNavigation()
+        self.initWindow()
+
+    def initNavigation(self):
+        self.addSubInterface(self.homeInterface, FIF.HOME, 'Home')
+        self.addSubInterface(self.musicInterface, FIF.MUSIC, 'Music library')
+        self.addSubInterface(self.videoInterface, FIF.VIDEO, 'Video library')
+
+        self.navigationInterface.addSeparator()
+
+        self.addSubInterface(self.albumInterface, FIF.ALBUM, 'Albums', NavigationItemPosition.SCROLL)
+        self.addSubInterface(self.albumInterface1, FIF.ALBUM, 'Album 1', parent=self.albumInterface)
+
+        self.addSubInterface(self.settingInterface, FIF.SETTING, 'Settings', NavigationItemPosition.BOTTOM)
+
+    def initWindow(self):
+        self.resize(900, 700)
+        self.setWindowIcon(QIcon(':/qfluentwidgets/images/logo.png'))
+        self.setWindowTitle('PyQt-Fluent-Widgets')
+
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    w = Window()
+    w.show()
+    app.exec()

@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'page_hackatime.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.2
+## Created by: Qt User Interface Compiler version 6.9.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -42,9 +42,9 @@ class Ui_Form(object):
         self.total_time_label = StrongBodyLabel(self.frame)
         self.total_time_label.setObjectName(u"total_time_label")
         self.total_time_label.setGeometry(QRect(10, 10, 49, 16))
-        self.widget = QWidget(self.frame)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(10, 30, 361, 21))
+        self.total_time_widget = QWidget(self.frame)
+        self.total_time_widget.setObjectName(u"total_time_widget")
+        self.total_time_widget.setGeometry(QRect(10, 30, 361, 21))
 
         self.verticalLayout.addWidget(self.frame)
 
@@ -52,18 +52,18 @@ class Ui_Form(object):
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
-        self.widget1 = QWidget(self.frame_2)
-        self.widget1.setObjectName(u"widget1")
-        self.widget1.setGeometry(QRect(10, 0, 371, 241))
-        self.verticalLayout_3 = QVBoxLayout(self.widget1)
+        self.layoutWidget1 = QWidget(self.frame_2)
+        self.layoutWidget1.setObjectName(u"layoutWidget1")
+        self.layoutWidget1.setGeometry(QRect(10, 0, 371, 241))
+        self.verticalLayout_3 = QVBoxLayout(self.layoutWidget1)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.hackatime = StrongBodyLabel(self.widget1)
+        self.hackatime = StrongBodyLabel(self.layoutWidget1)
         self.hackatime.setObjectName(u"hackatime")
 
         self.verticalLayout_3.addWidget(self.hackatime)
 
-        self.today_time_widget = QWidget(self.widget1)
+        self.today_time_widget = QWidget(self.layoutWidget1)
         self.today_time_widget.setObjectName(u"today_time_widget")
 
         self.verticalLayout_3.addWidget(self.today_time_widget)
@@ -74,13 +74,13 @@ class Ui_Form(object):
 
         self.verticalLayout.setStretch(0, 1)
         self.verticalLayout.setStretch(1, 4)
-        self.layoutWidget1 = QWidget(Form)
-        self.layoutWidget1.setObjectName(u"layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(410, 9, 381, 221))
-        self.verticalLayout_2 = QVBoxLayout(self.layoutWidget1)
+        self.layoutWidget2 = QWidget(Form)
+        self.layoutWidget2.setObjectName(u"layoutWidget2")
+        self.layoutWidget2.setGeometry(QRect(410, 9, 381, 221))
+        self.verticalLayout_2 = QVBoxLayout(self.layoutWidget2)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.frame_3 = QFrame(self.layoutWidget1)
+        self.frame_3 = QFrame(self.layoutWidget2)
         self.frame_3.setObjectName(u"frame_3")
         self.frame_3.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Shadow.Raised)
@@ -93,7 +93,7 @@ class Ui_Form(object):
 
         self.verticalLayout_2.addWidget(self.frame_3)
 
-        self.frame_4 = QFrame(self.layoutWidget1)
+        self.frame_4 = QFrame(self.layoutWidget2)
         self.frame_4.setObjectName(u"frame_4")
         self.frame_4.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Shadow.Raised)
